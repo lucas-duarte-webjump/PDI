@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id String @id
+  first_name String
+  last_name String
+  email String @unique
+  phone String
+  password String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  quote Quote[]
+
+  @@map("customer")
+  @@index([id, created_at(sort: Desc)])
+}
+
+model Product {
+  id String @id
+  sku String @unique
+  name String
+  image String
+  stock ProductStock[]
+  quoteItem QuoteItem[]
+  created_at DateTime @default(now())
+
+  @@map("product")
+  @@index([id, created_at(sort: Desc)])
+}
+
+model ProductStock {
+  id String @id
+  product Product @relation(fields: [product_id], references: [id])
+  product_id String
+  available_quantity Int
+  status String
+
+  @@map("product_stock")
+  @@index([status, id])
+}
+
+model Quote {
+  id String @id
+  item QuoteItem @relation(fields: [item_id], references: [id])
+  item_id String
+  customer Customer @relation(fields: [customer_id], references: [id])
+  customer_id String
+  created_at DateTime @default(now())
+
+  @@map("quote")
+  @@index([id, created_at(sort: Desc)])
+}
+
+model QuoteItem {
+  id String @id
+  quote Quote[]
+  product Product @relation(fields: [product_id], references: [id])
+  product_id String
+
+  @@map("quote_item")
+}

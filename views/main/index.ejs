@@ -1,0 +1,74 @@
+<header id="main-header">
+    <section class="info">
+        <div>
+            <span>Contact (11) 98765-4321</span>
+        </div>
+        <div>
+            <span>Get 50% off on Selected Items | Shop Now</span>
+        </div>
+        <div>
+            <span>Eng</span>
+            <span>Location</span>
+        </div>
+    </section>
+    <section class="actions">
+        <div class="main-action">
+            <figure>
+                <img src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg" alt="logo-marca" />
+            </figure>
+            <div class="options">
+                <a href="#">Category</a>
+                <a href="#">Deals</a>
+                <a href="#">What's New</a>
+            </div>
+        </div>
+        <div id="search-box">
+            <input type="text" placeholder="Search Product">
+            <figure>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.8" d="M8.33317 3.33317C5.57175 3.33317 3.33317 5.57175 3.33317 8.33317C3.33317 11.0946 5.57175 13.3332 8.33317 13.3332C11.0946 13.3332 13.3332 11.0946 13.3332 8.33317C13.3332 5.57175 11.0946 3.33317 8.33317 3.33317ZM1.6665 8.33317C1.6665 4.65127 4.65127 1.6665 8.33317 1.6665C12.0151 1.6665 14.9998 4.65127 14.9998 8.33317C14.9998 9.87376 14.4773 11.2923 13.5997 12.4212L18.0891 16.9106C18.4145 17.236 18.4145 17.7637 18.0891 18.0891C17.7637 18.4145 17.236 18.4145 16.9106 18.0891L12.4212 13.5997C11.2923 14.4773 9.87376 14.9998 8.33317 14.9998C4.65127 14.9998 1.6665 12.0151 1.6665 8.33317Z" fill="#231F1E"></path>
+                </svg>
+            </figure>
+        </div>
+        <div class="customer-actions">
+            <button>
+                <img src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63eb3dec9d6ee83660ebe1de_user.png" loading="lazy" alt="Account Icon">
+                <span>Account</span>
+            </button>
+            <button>
+                <img src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63eb3dec9b865e78d4ff6b8d_shopping-cart-add.png" loading="lazy" alt="Cart Icon">
+                <span>Cart</span>
+            </button>
+        </div>
+    </section>
+</header>
+<main class="main-commerce-content">
+    <section class="banner">
+        <div class="promo-text">
+            <h1>Grandes Promoções na Hortfruit</h1>
+            <p>Descontos incríveis em frutas frescas e saudáveis!</p>
+            <p>Por tempo limitado.</p>
+        </div>
+    </section>
+    <section id="product-list">
+        <h2>Products</h2>
+        <section id="products">
+            <% products.forEach(function(product) { %>
+                <div>
+                    <figure>
+                        <img src="<%= product.image%>" alt="<%= product.name %>"/>
+                    </figure>
+                    <section>
+                        <span><%= product.name %></span>
+                        <p><%= product.sku%></p>
+                    
+                        <button>Add to Cart</button>
+                    </section>
+                </div>
+             <% }); %> 
+        </section>
+    </section>
+</main>
+<footer>
+
+</footer>
